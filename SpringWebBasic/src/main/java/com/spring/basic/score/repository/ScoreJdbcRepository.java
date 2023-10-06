@@ -158,7 +158,13 @@ public class ScoreJdbcRepository implements IScoreRepository {
 			
 			pstmt.setInt(1,stuNum);
 			
-			pstmt.executeUpdate();
+			int result = pstmt.executeUpdate();
+			
+			if(result == 1) {
+				System.out.println("INSERT 성공!");
+			} else {
+				System.out.println("INSERT 실패!");
+			}
 			
 		} catch (Exception e) {
 			e.printStackTrace();
